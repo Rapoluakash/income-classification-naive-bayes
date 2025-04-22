@@ -1,0 +1,31 @@
+name: Naive Bayes Income Classification CI
+
+on:  # 👈 This is the part you're missing
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas==1.5.3
+          pip install numpy==1.24.2
+          pip install matplotlib==3.7.1
+          pip install scikit-learn==1.2.2
+
+      - name: Check if script runs
+        run: |
+          test -f "Income Classification using Multinomial, Gaussian, and Bernoulli Naive Bayes Algorithms.py" && echo "✅ Script found" || echo "❌ Script not found"
