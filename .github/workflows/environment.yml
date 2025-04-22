@@ -1,0 +1,11 @@
+name: income-naive-bayes-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pandas=1.5.3
+  - numpy=1.24.2
+  - matplotlib=3.7.1
+  - scikit-learn=1.2.2
